@@ -1,0 +1,14 @@
+{
+  "name": "WAO-testing",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-wasm-memory64",
+    "test-only": "node --experimental-wasm-memory64 --test-only"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "wao": "^0.7.0"
+  }
+}
