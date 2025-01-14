@@ -3,7 +3,14 @@ local db = {
 }
 
 Handlers.add("Get-Age", function(msg)
-    msg.reply({
-        Data = tostring(db[msg.Name])
-    })
+    local age = db[msg.Name]
+    if age then
+        msg.reply({
+            Data = tostring(age)
+        })
+    else
+        msg.reply({
+            Data = "Unknown"
+        })
+    end
 end)

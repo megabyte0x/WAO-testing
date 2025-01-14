@@ -12,7 +12,6 @@ Handlers.add(
 
 
 Handlers.add("Check-Age", function(msg)
-    local sender = msg.From;
     msg.reply({ Data = "How old are you?" })
     local age = Send({
         Target = msg.To, Action = "Get-Age", Name = msg.Who

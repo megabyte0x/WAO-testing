@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "node --experimental-wasm-memory64",
-    "test-only": "node --experimental-wasm-memory64 --test-only"
+    "test-only": "node --experimental-wasm-memory64 --test-only",
+    "oracle:test": "node --experimental-wasm-memory64 test/oracle.js",
+    "oracle:test:only": "node --experimental-wasm-memory64 --test-only test/oracle.js"
   },
   "license": "MIT",
   "dependencies": {
