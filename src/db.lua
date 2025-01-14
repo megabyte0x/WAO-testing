@@ -2,8 +2,8 @@ local db = {
     Bob = 30
 }
 
-Handlers.add("Get-Age", function()
+Handlers.add("Get-Age", function(msg)
     msg.reply({
-        Data = "30"
+        Data = tostring(db[msg.Name])
     })
 end)

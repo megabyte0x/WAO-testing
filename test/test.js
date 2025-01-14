@@ -19,7 +19,7 @@ describe("WAO", function () {
 
         const { p } = await ao.deploy({ src_data: main_data })
         const result = await p.d("Hello", { get: "Name" })
-        assert.deepEqual(result, "Megabyte")
+        assert.strictEqual(result, "Megabyte")
 
         await p.m("Hello", { check: { Name: "Megabyte" } })
     })
@@ -34,15 +34,20 @@ describe("WAO", function () {
         })
         const db_id = db_deploy.pid;
 
-        const age = await p.m(
-            "Check-Age",
-            { Who: "Bob", To: db_id },
-            {
-                check: "got your age!"
-            }
-        )
-        console.log(age)
-        // assert.strictEqual(age, "30")
+        let age;
+        try {
+            age = await p.m(
+                "Check-Age",
+                { Who: "Bob", To: db_id },
+                {
+                    check: "age", get: "Age"
+                }
+            )
+        } catch (e) {
+            throw e;
+        }
+
+        assert.strictEqual(age, "30")
 
     })
 })

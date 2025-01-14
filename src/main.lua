@@ -1,7 +1,6 @@
 local json = require('json')
 Handlers.add(
     "Hello",
-    "Hello",
     function(msg)
         msg.reply({
             Data = "Hello World!",
@@ -13,9 +12,11 @@ Handlers.add(
 
 
 Handlers.add("Check-Age", function(msg)
+    local sender = msg.From;
     msg.reply({ Data = "How old are you?" })
     local age = Send({
         Target = msg.To, Action = "Get-Age", Name = msg.Who
     }).receive().Data
-    msg.reply({ Data = "got your age!", Name = msg.Who, Age = age })
-end)
+    msg.reply({ Data = "age", Name = msg.Who, Age = age })
+end
+)
